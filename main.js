@@ -1,19 +1,26 @@
 import { createElement, Component, render } from "./toy-react";
 
 class MyComponent extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       a: 1,
-      b: 2
-    }
+      b: 2,
+    };
   }
   render() {
     return (
       <div>
         <h1>This is my component</h1>
+        <button
+          onclick={() => {
+            this.state.a++;
+            this.rerender();
+          }}
+        >
+          Add
+        </button>
         <span>{this.state.a.toString()}</span>
-        {this.children}
       </div>
     );
   }
